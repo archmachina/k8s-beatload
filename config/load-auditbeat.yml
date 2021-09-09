@@ -1,7 +1,8 @@
+---
 auditbeat.modules:
-- module: file_integrity
-  paths:
-    - /bin
+  - module: file_integrity
+    paths:
+      - /bin
 
 setup.template.enabled: true
 setup.template.name: "auditbeat-%{[agent.version]}"
@@ -9,12 +10,12 @@ setup.template.pattern: "auditbeat-%{[agent.version]}-*"
 setup.template.overwrite: false
 
 setup.ilm.enabled: false
-#setup.ilm.enabled: auto
-#setup.ilm.rollover_alias: "auditbeat-%{[agent.version]}"
-#setup.ilm.pattern: "{now/d}-000001"
-#setup.ilm.policy_name: "auditbeat"
-#setup.ilm.check_exists: true
-#setup.ilm.overwrite: true
+# setup.ilm.enabled: auto
+# setup.ilm.rollover_alias: "auditbeat-%{[agent.version]}"
+# setup.ilm.pattern: "{now/d}-000001"
+# setup.ilm.policy_name: "auditbeat"
+# setup.ilm.check_exists: true
+# setup.ilm.overwrite: true
 
 setup.kibana:
   host: "${KIBANA_HOST}:${KIBANA_PORT}"

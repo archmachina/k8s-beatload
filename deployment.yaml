@@ -25,7 +25,7 @@ spec:
       initContainers:
         - name: conn-check
           image: curlimages/curl
-          command: [ 'sh' ]
+          command: ['sh']
           args:
             - "/conn-check.sh"
           env:
@@ -63,7 +63,7 @@ spec:
               subPath: conn-check.sh
         - name: ilm-setup
           image: curlimages/curl
-          command: [ 'sh' ]
+          command: ['sh']
           args:
             - "/ilm-setup.sh"
           env:
@@ -87,7 +87,7 @@ spec:
               subPath: ilm-setup.sh
         - name: filebeat-load
           image: docker.elastic.co/beats/filebeat:7.12.0
-          command: [ '/usr/share/filebeat/filebeat' ]
+          command: ['/usr/share/filebeat/filebeat']
           args:
             - "setup"
             - "--pipelines"
@@ -130,7 +130,7 @@ spec:
               subPath: filebeat.yml
         - name: filebeat-load-dashboard
           image: docker.elastic.co/beats/filebeat:7.9.2
-          command: [ '/usr/share/filebeat/filebeat' ]
+          command: ['/usr/share/filebeat/filebeat']
           args:
             - "setup"
             - "--dashboards"
@@ -172,7 +172,7 @@ spec:
               subPath: filebeat.yml
         - name: metricbeat-load
           image: docker.elastic.co/beats/metricbeat:7.9.0
-          command: [ '/usr/share/metricbeat/metricbeat' ]
+          command: ['/usr/share/metricbeat/metricbeat']
           args:
             - "setup"
             - "--pipelines"
@@ -215,7 +215,7 @@ spec:
               subPath: metricbeat.yml
         - name: metricbeat-load-dashboard
           image: docker.elastic.co/beats/metricbeat:7.9.0
-          command: [ '/usr/share/metricbeat/metricbeat' ]
+          command: ['/usr/share/metricbeat/metricbeat']
           args:
             - "setup"
             - "--dashboards"
@@ -257,7 +257,7 @@ spec:
               subPath: metricbeat.yml
         - name: auditbeat-load
           image: docker.elastic.co/beats/auditbeat:7.12.0
-          command: [ '/usr/share/auditbeat/auditbeat' ]
+          command: ['/usr/share/auditbeat/auditbeat']
           args:
             - "setup"
             - "--pipelines"
@@ -300,7 +300,7 @@ spec:
               subPath: auditbeat.yml
         - name: auditbeat-load-dashboard
           image: docker.elastic.co/beats/auditbeat:7.9.2
-          command: [ '/usr/share/auditbeat/auditbeat' ]
+          command: ['/usr/share/auditbeat/auditbeat']
           args:
             - "setup"
             - "--dashboards"
