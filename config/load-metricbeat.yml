@@ -1,0 +1,36 @@
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.enabled: true
+setup.template.name: "metricbeat-%{[agent.version]}"
+setup.template.pattern: "metricbeat-%{[agent.version]}-*"
+setup.template.overwrite: false
+
+setup.ilm.enabled: false
+#setup.ilm.enabled: auto
+#setup.ilm.rollover_alias: "metricbeat-%{[agent.version]}"
+#setup.ilm.pattern: "{now/d}-000001"
+#setup.ilm.policy_name: "metricbeat"
+#setup.ilm.check_exists: true
+#setup.ilm.overwrite: true
+
+setup.kibana:
+  host: "${KIBANA_HOST}:${KIBANA_PORT}"
+  protocol: https
+  username: "${KIBANA_USERNAME}"
+  password: "${KIBANA_PASSWORD}"
+  ssl.certificate_authorities:
+    - "/usr/share/metricbeat/certs/ca.crt"
+  ssl.enabled: true
+
+output.elasticsearch:
+  enabled: true
+  hosts: ["${ELASTIC_HOST}:${ELASTIC_PORT}"]
+  username: "${ELASTIC_USERNAME}"
+  password: "${ELASTIC_PASSWORD}"
+  ssl.certificate_authorities:
+    - "/usr/share/metricbeat/certs/ca.crt"
+  index: "metricbeat-%{[agent.version]}"
+  protocol: https
+  ssl.enabled: true
