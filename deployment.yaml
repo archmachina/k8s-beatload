@@ -90,7 +90,6 @@ spec:
           command: ['/usr/share/filebeat/filebeat']
           args:
             - "setup"
-            - "--pipelines"
             - "--index-management"
             - "-e"
           env:
@@ -175,7 +174,6 @@ spec:
           command: ['/usr/share/metricbeat/metricbeat']
           args:
             - "setup"
-            - "--pipelines"
             - "--index-management"
             - "-e"
           env:
@@ -260,7 +258,6 @@ spec:
           command: ['/usr/share/auditbeat/auditbeat']
           args:
             - "setup"
-            - "--pipelines"
             - "--index-management"
             - "-e"
           env:
