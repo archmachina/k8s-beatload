@@ -61,6 +61,30 @@ spec:
             - name: beatload-config
               mountPath: /conn-check.sh
               subPath: conn-check.sh
+        - name: ilm-setup
+          image: curlimages/curl
+          command: ['sh']
+          args:
+            - "/ilm-setup.sh"
+          env:
+            - name: ELASTIC_HOST
+              value: "elastic-svc"
+            - name: ELASTIC_PORT
+              value: "9200"
+            - name: ELASTIC_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: beatload-cred
+                  key: username
+            - name: ELASTIC_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: beatload-cred
+                  key: password
+          volumeMounts:
+            - name: beatload-config
+              mountPath: /ilm-setup.sh
+              subPath: ilm-setup.sh
         - name: filebeat-load
           image: docker.elastic.co/beats/filebeat:7.14.2-amd64
           command: ['/usr/share/filebeat/filebeat']

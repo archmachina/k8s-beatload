@@ -12,7 +12,7 @@ setup.template.settings:
 setup.ilm.enabled: true
 setup.ilm.rollover_alias: "filebeat-%{[agent.version]}"
 setup.ilm.pattern: "{now/d}-000001"
-setup.ilm.policy_name: "filebeat"
+setup.ilm.policy_name: "default-beats"
 setup.ilm.check_exists: true
 setup.ilm.overwrite: false
 

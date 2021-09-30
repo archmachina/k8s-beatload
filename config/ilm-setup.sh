@@ -99,54 +99,54 @@ if [ $? -eq 22 ] ; then
   fi
 fi
 
-getContent "_template/default-beats-map"
-if [ $? -eq 22 ] ; then
-  putContent "_template/default-beats-map?include_type_name" '
-  {
-    "order": -10,
-    "index_patterns": [
-      "auditbeat-*",
-      "filebeat-*",
-      "winlogbeat-*"
-    ],
-    "settings": {
-      "index": {
-        "lifecycle": {
-          "name": "default-beats"
-        }
-      }
-    },
-    "aliases": {},
-    "mappings": {}
-  }'
-  if [ $? -ne 0 ] ; then 
-    echo "default-beats-map update failed"
-    exit 1
-  fi
-fi
+# getContent "_template/default-beats-map"
+# if [ $? -eq 22 ] ; then
+#   putContent "_template/default-beats-map?include_type_name" '
+#   {
+#     "order": -10,
+#     "index_patterns": [
+#       "auditbeat-*",
+#       "filebeat-*",
+#       "winlogbeat-*"
+#     ],
+#     "settings": {
+#       "index": {
+#         "lifecycle": {
+#           "name": "default-beats"
+#         }
+#       }
+#     },
+#     "aliases": {},
+#     "mappings": {}
+#   }'
+#   if [ $? -ne 0 ] ; then 
+#     echo "default-beats-map update failed"
+#     exit 1
+#   fi
+# fi
 
-getContent "_template/default-filebeat-netflow-map"
-if [ $? -eq 22 ] ; then
-  putContent "_template/default-filebeat-netflow-map?include_type_name" '
-  {
-    "order": -1,
-    "index_patterns": [
-      "filebeat-netflow-*"
-    ],
-    "settings": {
-      "index": {
-        "lifecycle": {
-          "name": "default-filebeat-netflow"
-        }
-      }
-    },
-    "aliases": {},
-    "mappings": {}
-  }'
-  if [ $? -ne 0 ] ; then 
-    echo "default-filebeat-netflow-map update failed"
-    exit 1
-  fi
-fi
+# getContent "_template/default-filebeat-netflow-map"
+# if [ $? -eq 22 ] ; then
+#   putContent "_template/default-filebeat-netflow-map?include_type_name" '
+#   {
+#     "order": -1,
+#     "index_patterns": [
+#       "filebeat-netflow-*"
+#     ],
+#     "settings": {
+#       "index": {
+#         "lifecycle": {
+#           "name": "default-filebeat-netflow"
+#         }
+#       }
+#     },
+#     "aliases": {},
+#     "mappings": {}
+#   }'
+#   if [ $? -ne 0 ] ; then 
+#     echo "default-filebeat-netflow-map update failed"
+#     exit 1
+#   fi
+# fi
 
 exit 0
