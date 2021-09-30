@@ -1,16 +1,20 @@
 ---
+
 setup.template.enabled: true
+setup.template.type: index
 setup.template.name: "filebeat-%{[agent.version]}"
 setup.template.pattern: "filebeat-%{[agent.version]}-*"
 setup.template.overwrite: false
+setup.template.settings:
+  index.number_of_shards: 1
+  index.number_of_replicas: 1
 
-setup.ilm.enabled: false
-# setup.ilm.enabled: auto
-# setup.ilm.rollover_alias: "filebeat-%{[agent.version]}"
-# setup.ilm.pattern: "{now/d}-000001"
-# setup.ilm.policy_name: "filebeat"
-# setup.ilm.check_exists: true
-# setup.ilm.overwrite: true
+setup.ilm.enabled: true
+setup.ilm.rollover_alias: "filebeat-%{[agent.version]}"
+setup.ilm.pattern: "{now/d}-000001"
+setup.ilm.policy_name: "filebeat"
+setup.ilm.check_exists: true
+setup.ilm.overwrite: false
 
 setup.kibana:
   host: "${KIBANA_HOST}:${KIBANA_PORT}"
