@@ -1,1 +1,1 @@
-# k8s-beatload
+# kustomize-beatload
