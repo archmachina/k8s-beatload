@@ -86,7 +86,7 @@ spec:
               mountPath: /ilm-setup.sh
               subPath: ilm-setup.sh
         - name: filebeat-load
-          image: docker.elastic.co/beats/filebeat:7.14.2-amd64
+          image: docker.elastic.co/beats/filebeat:8.5.1-amd64
           command: ['/usr/share/filebeat/filebeat']
           args:
             - "setup"
@@ -128,7 +128,7 @@ spec:
               mountPath: /usr/share/filebeat/filebeat.yml
               subPath: filebeat.yml
         - name: filebeat-load-dashboard
-          image: docker.elastic.co/beats/filebeat:7.14.2-amd64
+          image: docker.elastic.co/beats/filebeat:8.5.1-amd64
           command: ['/usr/share/filebeat/filebeat']
           args:
             - "setup"
