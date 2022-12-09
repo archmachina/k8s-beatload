@@ -254,7 +254,7 @@ spec:
               mountPath: /usr/share/metricbeat/metricbeat.yml
               subPath: metricbeat.yml
         - name: auditbeat-load
-          image: docker.elastic.co/beats/auditbeat:7.14.2-amd64
+          image: docker.elastic.co/beats/auditbeat:8.5.3-amd64
           command: ['/usr/share/auditbeat/auditbeat']
           args:
             - "setup"
@@ -296,7 +296,7 @@ spec:
               mountPath: /usr/share/auditbeat/auditbeat.yml
               subPath: auditbeat.yml
         - name: auditbeat-load-dashboard
-          image: docker.elastic.co/beats/auditbeat:7.14.2-amd64
+          image: docker.elastic.co/beats/auditbeat:8.5.3-amd64
           command: ['/usr/share/auditbeat/auditbeat']
           args:
             - "setup"
