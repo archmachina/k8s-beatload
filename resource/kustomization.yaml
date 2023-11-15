@@ -1,0 +1,30 @@
+---
+
+kind: Kustomization
+
+secretGenerator:
+  - name: beatload-credentials
+    type: Opaque
+    # literals:
+    #   - elastic_username=changeme
+    #   - elastic_password=changeme
+    #   - kibana_username=changeme
+    #   - kibana_password=changeme
+
+configMapGenerator:
+  - name: beatload-files
+    files:
+      - auditbeat.yml=files/load-auditbeat.yml
+      - filebeat.yml=files/load-filebeat.yml
+      - metricbeat.yml=files/load-metricbeat.yml
+      - ilm-policy.json=files/ilm-policy.json
+
+  - name: beatload-config
+    literals:
+      - elastic_host=elastic-svc
+      - elastic_port=9200
+      - kibana_host=kibana-svc
+      - kibana_port=5601
+      - elasticwait_cert_cerify=0
+      - elasticwait_time_wait=30
+      - elasticwait_max_attempts=60
