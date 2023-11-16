@@ -11,6 +11,9 @@ secretGenerator:
     #   - kibana_username=changeme
     #   - kibana_password=changeme
 
+  - name: beatload-ca-cert
+    type: Opaque
+
 configMapGenerator:
   - name: beatload-files
     files:
