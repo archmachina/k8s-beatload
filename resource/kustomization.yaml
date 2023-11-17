@@ -28,6 +28,6 @@ configMapGenerator:
       - elastic_port=9200
       - kibana_host=kibana-svc
       - kibana_port=5601
-      - elasticwait_cert_cerify=0
+      - elasticwait_cert_verify=0
       - elasticwait_time_wait=30
       - elasticwait_max_attempts=60
