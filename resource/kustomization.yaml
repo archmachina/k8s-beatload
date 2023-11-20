@@ -31,3 +31,4 @@ configMapGenerator:
       - elasticwait_cert_verify=0
       - elasticwait_time_wait=30
       - elasticwait_max_attempts=60
+      - index_replicas=1
